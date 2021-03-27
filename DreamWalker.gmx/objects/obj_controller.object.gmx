@@ -56,6 +56,9 @@ if obj_player.is_talking {
     draw_sprite(spr_textbox,0,0,room_height)
     draw_text(50,room_height - 150,npc.txt)
 }
+if obj_player.inventory_opened {
+    draw_sprite(spr_inventory,0,room_width/2,room_height/2)
+}
 </string>
           </argument>
         </arguments>

@@ -28,9 +28,14 @@
             <string>spd = 3
 dir = 0
 is_talking = false
-fov = 45
+inventory_opened = false
+fov = 45 //Cono de visión
 interaction_distance = 40
 is_moving = false
+different_items = 100
+item_name[different_items] = -1
+item_description[different_items] = -1
+item_quantity[different_items] = -1
 </string>
           </argument>
         </arguments>
@@ -124,12 +129,37 @@ if hspeed!=0 or vspeed!=0 {
           <argument>
             <kind>1</kind>
             <string>///INTERACTION
-npc = instance_nearest(x,y,obj_npc)
-npc_dir = point_direction(x,y,npc.x,npc.y)
-npc_dist = point_distance(x,y,npc.x,npc.y)
+npc = instance_nearest(x,y,obj_npc) // Obtiene el NPC más cercano
+npc_dir = point_direction(x,y,npc.x,npc.y) //Obtiene la dirección radial del NPC
+npc_dist = point_distance(x,y,npc.x,npc.y) //Obtiene la distancia a la que está el NPC
 angle_dif = angle_difference(dir,npc_dir)
 if (!is_moving &amp;&amp; keyboard_check_pressed(ord("Z")) &amp;&amp; abs(angle_dif)&lt;=fov &amp;&amp; npc_dist&lt;=interaction_distance) {
     is_talking = !is_talking
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///INVENTORY
+if keyboard_check_pressed(vk_enter) {
+    inventory_opened = !inventory_opened
+    // se abre inventario
 }
 </string>
           </argument>

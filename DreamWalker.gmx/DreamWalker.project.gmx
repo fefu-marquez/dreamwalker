@@ -10,6 +10,7 @@
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_npc</sprite>
     <sprite>sprites\spr_textbox</sprite>
+    <sprite>sprites\spr_inventory</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
